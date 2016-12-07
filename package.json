@@ -10,12 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^0.22.0",
     "ejs": "^2.5.5",
     "form-data": "^2.1.2",
     "gm": "^1.23.0",
     "minimist": "^1.2.0",
-    "node-base64-image": "^1.0.3",
     "node-fetch": "^1.6.3",
     "nodemailer": "^2.6.4",
     "ora": "^0.3.0",
