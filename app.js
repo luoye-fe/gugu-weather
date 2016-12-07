@@ -11,6 +11,7 @@ const minimist = require('minimist');
 const webshot = require('webshot');
 
 const logger = require('./logger.js');
+const config = require('./config.js');
 
 // 获取命令行参数
 const argv = minimist(process.argv.slice(2));
@@ -187,13 +188,12 @@ function encode(target) {
 
 // 发送到咕咕鸡
 function send(imgDate) {
-	console.log(imgDate);
 	return new Promise((resolve, reject) => {
 		const form = new FormData();
-		form.append('memobirdID', 'fdcc7956c1fa7856');
-		form.append('userID', '158357');
+		form.append('memobirdID', config.memobirdID);
+		form.append('userID', config.userID);
 		form.append('printcontent', `P:${imgDate}`);
-		fetch(`http://open.memobird.cn/home/printpaper?ak=a32cfefbea1e4789aa72f555fafcebc8&timestamp=${new Date().toLocaleDateString('ja-chinese', {year: "numeric", month: '2-digit', day: '2-digit'})}`, {
+		fetch(`http://open.memobird.cn/home/printpaper?ak=${config.ak}&timestamp=${new Date().toLocaleDateString('ja-chinese', {year: "numeric", month: '2-digit', day: '2-digit'})}`, {
 				method: 'POST',
 				body: form
 			})

@@ -19,3 +19,4 @@ temp/
 !temp/.gitkeep
 result/
 !result/.gitkeep
+config.js
